@@ -10,6 +10,7 @@
     <form class='form' method='POST' enctype="multipart/form-data">
         {% csrf_token %}
         {{form.non_field_errors}}
+        {{form.errors}}
         <p class='label'>Title</p>
         <div class="iconfield">
             <input class='field' placeholder="Give a name to your Blog."{{form.title}}

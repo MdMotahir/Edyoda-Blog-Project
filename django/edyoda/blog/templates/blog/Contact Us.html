@@ -11,6 +11,7 @@
     <form class='form' method='POST' enctype="multipart/form-data">
         {% csrf_token %}
         {{form.non_field_errors}}
+        {{form.errors}}
         <p class='label'>Name</p>
         <div class="iconfield">
             <i class="fas fa-user-tie"></i>

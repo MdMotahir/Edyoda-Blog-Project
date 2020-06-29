@@ -223,20 +223,28 @@ button:hover{
 }
 .search_bar{
     border: none;
-    font-size: 16px;
+    font-size: 18px;
     padding: 2px;
 }
 .search_btn{
     box-shadow: none;
-    border-radius: 2px;
+    border-radius: 0px;
     cursor: pointer;
     border:none;
-    font-size: 16px;
+    font-size: 18px;
+    color:#172146;
+    background-color:aqua;
     padding: 2px;
-    color:black;
+    margin: 0px;
+    margin-left: 1px;
 }
 .search_btn:hover{
     background-color: aqua;
+}
+.search_box{
+    background-color: aqua;
+    padding: 2px;
+    border-radius: 3px;
 }
 .wrong_search{
     width: 80%;

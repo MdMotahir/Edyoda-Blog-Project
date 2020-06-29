@@ -10,6 +10,7 @@
     <form class='form' method='POST' enctype="multipart/form-data">
         {% csrf_token %}
         {{form.non_field_errors}}
+        {{form.errors}}
         <div id='name'>
             <div id='firstname'>
                 <p class='label'>First Name</p>
