@@ -1,0 +1,51 @@
+{%extends 'blog/Base.html'%}
+{%load static%}
+{%block extra_head%}
+    <link rel="stylesheet" href="{%static "blog/css/Form.css"%}">
+    <script src="https://kit.fontawesome.com/51c0f5a80b.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{%block content%}
+    <h1>Update Your Details</h1>
+    <form class='form' method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.non_field_errors}}
+        {{form.errors}}
+        <div id='name'>
+            <div id='firstname'>
+                <p class='label'>First Name</p>
+                <input class='field'  placeholder="First Name Please"{{form.first_name}}
+            </div>
+            <div id='lastname'>
+                <p class='label'>Last Name</p>
+                <input class='field'  placeholder="Last Name Please"{{form.last_name}}
+            </div>
+        </div>
+        <p class='label'>Username</p>
+        <div class="iconfield">
+            <i class="fas fa-user-tie"></i>
+            <input class='field' placeholder="Conatins Letters, digits and @/./+/-/_ only."{{form.username}}
+        </div>
+        <p class='label'>Email</p>
+        <div class="iconfield">
+            <i class="fa fa-envelope"></i>
+            <input class='field' placeholder="Your Email Please"{{form.email}}
+        </div>
+        <p class='label'>Contact</p>
+        <div class="iconfield">
+            <i class="fas fa-mobile-alt"></i>
+            <input class='field'  placeholder="Your Phone number Please"{{form.contact}}
+        </div>
+        <div>
+            <p class='label'>Profile Image</p>
+            {{form.image}}
+        </div>
+        <p class='label'>Bio</p>
+        <div>
+            {{form.bio|safe}}
+        </div>
+        <div class='submit_btn'>
+            <input id='sub' type='submit' value='Update'>
+        </div>
+    </form>
+{% endblock %}

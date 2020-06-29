@@ -1,0 +1,52 @@
+{% extends 'blog/Base.html' %}
+{% load static %}
+
+{%block extra_head%}
+        <link rel="stylesheet" href="{% static 'blog/css/Blog Details.css'%}"
+{%endblock%}
+
+{%block content%}
+    <h2>{{post.title}}
+        <a class="link" href="{%url 'Update Blog' post.slug%}"><button>Update</button></a>
+        <a class="link" href="{%url 'Delete Blog' post.slug%}"><button>Delate</button></a>
+    </h2>
+    <div class="blogwraper">
+        {% if post.image%}
+            <div class="image"><img src="{{post.image.url}}" alt="Getting started with Artificial Intelligence" width="100%" height="100%"></div>
+        {% else %}
+            <div class="image"><img src="{{post.image_url}}" alt="Getting started with Artificial Intelligence" width="100%" height="100%"></div>
+        {% endif %}
+        <div class="details">
+            <p class="heading">{{post.title}}</p>
+            <p class="author">{{post.author}}<span> | {{post.date}}</span></p>
+            <p>{{post.content|safe}}</p>
+        </div>
+    </div>
+    <div class="blogbottom">
+        <div class="field">
+            <div class='iconfield'>
+                <i class="fas fa-user-tie"></i>
+                <span>Username</span>
+            </div>
+            <div class='userfield'><a class="link_text" href="{%url 'My Blog' post.author%}">{{post.author}}</a></div>
+        </div>
+        <div class="field">
+            <div class='iconfield'>
+                <span>Title</span>
+            </div>
+            <div class='userfield'>{{post.title}}</div>
+        </div>
+        <div class="field">
+            <div class='iconfield'>
+                <span>Category</span>
+            </div>
+            <div class='userfield'><a class="link_text" href="{%url 'Category Page' post.category.slug%}">{{post.category}}</a></div>
+        </div>
+        <div class="field">
+            <div class='iconfield'>
+                <span>Published/Last Update Date</span>
+            </div>
+            <div class='userfield'>{{post.date}}</div>
+        </div>
+    </div>
+{% endblock %}
